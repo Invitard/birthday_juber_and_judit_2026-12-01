@@ -20,6 +20,9 @@ const ogImageUrl = Astro.site ? new URL(ogPath, Astro.site).href : ogPath;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 		<meta name="theme-color" content="#0b1f4d" />
+		<!-- Siempre tema claro: evita que el modo oscuro del navegador altere los colores -->
+		<meta name="color-scheme" content="only light" />
+		<meta name="supported-color-schemes" content="light" />
 		<link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
@@ -46,6 +49,8 @@ const ogImageUrl = Astro.site ? new URL(ogPath, Astro.site).href : ogPath;
 
 <style is:global>
 	:root {
+		color-scheme: only light;
+
 		/* Azul — color principal */
 		--blue-950: #071638;
 		--blue-900: #0b1f4d;

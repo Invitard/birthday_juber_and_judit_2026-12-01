@@ -7,6 +7,7 @@ import RsvpSection from '../components/RsvpSection.astro';
 import Ornament from '../components/Ornament.astro';
 import MusicToggle from '../components/MusicToggle.astro';
 import Grass from '../components/Grass.astro';
+import ScrollHint from '../components/ScrollHint.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const img = (p: string) => `${base}/img/${p}`;
@@ -32,6 +33,7 @@ const particles = Array.from({ length: 18 }, (_, i) => ({
 <Layout>
 	<Cover />
 	<MusicToggle />
+	<ScrollHint />
 
 	<div class="magic-rain" aria-hidden="true">
 		{particles.map((p) => (

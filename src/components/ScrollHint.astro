@@ -1,0 +1,104 @@
+<button id="scroll-hint" class="scroll-hint" type="button" aria-label="Desliza para seguir leyendo" hidden>
+	<span class="scroll-hint-label">Desliza</span>
+	<svg class="scroll-hint-arrow" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+		<path d="M6 9l6 6 6-6"></path>
+	</svg>
+</button>
+
+<style>
+	.scroll-hint {
+		position: fixed;
+		left: 50%;
+		bottom: calc(22px + env(safe-area-inset-bottom));
+		z-index: 80;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2px;
+		padding: 8px 18px 6px;
+		border: 2px solid var(--gold);
+		border-radius: 999px;
+		color: #fff1bf;
+		background: linear-gradient(160deg, var(--red-600), var(--red-700));
+		box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+		font-family: var(--font-body);
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		cursor: pointer;
+		transform: translateX(-50%);
+		opacity: 1;
+		transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+		animation: hint-in 0.7s var(--ease-spring) backwards;
+	}
+
+	.scroll-hint[hidden] {
+		display: none;
+	}
+
+	.scroll-hint.is-hiding {
+		opacity: 0;
+		transform: translate(-50%, 16px);
+		pointer-events: none;
+	}
+
+	.scroll-hint-arrow {
+		animation: hint-bounce 1.6s ease-in-out infinite;
+	}
+
+	@keyframes hint-in {
+		from { opacity: 0; transform: translate(-50%, 24px); }
+		to { opacity: 1; transform: translateX(-50%); }
+	}
+
+	@keyframes hint-bounce {
+		0%, 100% { transform: translateY(-2px); }
+		50% { transform: translateY(5px); }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.scroll-hint,
+		.scroll-hint-arrow {
+			animation: none;
+		}
+	}
+</style>
+
+<script>
+	const hint = document.getElementById('scroll-hint');
+
+	if (hint) {
+		let hidden = false;
+
+		const hide = () => {
+			if (hidden) return;
+			hidden = true;
+			hint.classList.add('is-hiding');
+			window.removeEventListener('scroll', onScroll);
+			window.setTimeout(() => hint.setAttribute('hidden', ''), 600);
+		};
+
+		const onScroll = () => {
+			if (window.scrollY > 80) hide();
+		};
+
+		const show = () => {
+			if (window.scrollY > 80) return;
+			hint.removeAttribute('hidden');
+			window.addEventListener('scroll', onScroll, { passive: true });
+		};
+
+		hint.addEventListener('click', () => {
+			window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' });
+			hide();
+		});
+
+		// Aparece al abrir el libro (o de inmediato si no hay portada)
+		if (document.getElementById('story-cover')) {
+			document.addEventListener('story:open', show, { once: true });
+		} else {
+			show();
+		}
+	}
+</script>
