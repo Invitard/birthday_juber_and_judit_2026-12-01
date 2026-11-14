@@ -5,7 +5,7 @@ const song = `${base}/mp3/${encodeURIComponent('Lana Del Rey - Once Upon A Dream
 const sparkle = `${base}/mp3/EFECTO_DE_SONIDO_Resplandor.mp3`;
 ---
 
-<audio id="story-music" src={song} preload="auto" loop></audio>
+<audio id="story-music" src={song} preload="auto"></audio>
 <audio id="story-sparkle" src={sparkle} preload="auto"></audio>
 
 <button class="music-btn" id="music-btn" type="button" aria-label="Reproducir música" aria-pressed="false" hidden>
@@ -103,6 +103,18 @@ const sparkle = `${base}/mp3/EFECTO_DE_SONIDO_Resplandor.mp3`;
 	const btn = document.getElementById('music-btn');
 
 	if (audio && btn) {
+		// La canción empieza en el segundo 0:18 (también al repetirse)
+		const START_AT = 18;
+		const seekStart = () => {
+			if (audio.currentTime < START_AT) audio.currentTime = START_AT;
+		};
+		if (audio.readyState >= 1) seekStart();
+		else audio.addEventListener('loadedmetadata', seekStart, { once: true });
+		audio.addEventListener('ended', () => {
+			audio.currentTime = START_AT;
+			audio.play().catch(() => {});
+		});
+
 		const sync = () => {
 			const playing = !audio.paused;
 			btn.classList.toggle('is-playing', playing);
@@ -112,6 +124,7 @@ const sparkle = `${base}/mp3/EFECTO_DE_SONIDO_Resplandor.mp3`;
 
 		const play = () => {
 			audio.volume = 0.55;
+			seekStart();
 			audio.play().catch(() => {}).finally(sync);
 		};
 
