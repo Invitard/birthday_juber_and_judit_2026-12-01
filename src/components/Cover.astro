@@ -259,12 +259,12 @@ const stars = Array.from({ length: 28 }, (_, i) => ({
 			cover.classList.add('is-opening');
 			// Dentro del gesto del usuario para que el navegador permita la música
 			document.dispatchEvent(new CustomEvent('story:opening'));
-			// El libro queda abierto 5 segundos y luego se desvanece
-			window.setTimeout(() => cover.classList.add('is-open'), 5000);
+			// El libro queda abierto 3 segundos y luego se desvanece
+			window.setTimeout(() => cover.classList.add('is-open'), 3000);
 			window.setTimeout(() => {
 				document.body.classList.remove('is-locked');
 				document.dispatchEvent(new CustomEvent('story:open'));
-			}, 5900);
+			}, 3900);
 		};
 
 		book.addEventListener('click', open);
