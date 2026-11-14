@@ -5,19 +5,21 @@ interface Props {
 }
 
 const {
-	title = "Mis XV Años - Claudia | 21 de Noviembre de 2026",
-	description = "Te invito a celebrar mis 15 años este 21 de noviembre de 2026 en Cusco."
+	title = "El cuento de Emma Esmeralda · Mis 2 añitos",
+	description = "Había una vez una princesita que cumplía 2 años… Te invito a mi fiesta de Blanca Nieves el domingo 29 de noviembre de 2026 a las 4:00 p.m. en Crystal Palace, Cusco."
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const ogImageUrl = Astro.site ? new URL(`${base}/img/1001307716.jpg`, Astro.site).href : `${base}/img/1001307716.jpg`;
+const ogPath = `${base}/img/og-emma.jpg`;
+const ogImageUrl = Astro.site ? new URL(ogPath, Astro.site).href : ogPath;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<meta name="theme-color" content="#0b1f4d" />
 		<link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
@@ -25,14 +27,17 @@ const ogImageUrl = Astro.site ? new URL(`${base}/img/1001307716.jpg`, Astro.site
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta name="twitter:card" content="summary_large_image" />
 
-		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
+		<link rel="preload" as="image" href={`${base}/img/elements/libro.webp`} />
 	</head>
 	<body>
 		<slot />
@@ -41,33 +46,63 @@ const ogImageUrl = Astro.site ? new URL(`${base}/img/1001307716.jpg`, Astro.site
 
 <style is:global>
 	:root {
-		--c-blue: #BAD9F5;
-		--c-lilac: #C8A4C8;
-		--c-gold: #F6B913;
-		--c-gold-warm: #ECBA7F;
-		--c-gold-dark: #b88628;
-		--c-silver: #C4C7D0;
-		--c-bg: #FAF7F2;
-		--c-text-title: #43332A;
-		--c-text-body: #574840;
-		--c-text-light: #8A7B73;
-		--gold-gradient: linear-gradient(135deg, #c59737 0%, #f7d277 50%, #b38222 100%);
-		--font-script: 'Great Vibes', 'Alex Brush', cursive;
-		--font-serif: 'Cinzel', 'Cormorant Garamond', serif;
-		--font-body: 'Montserrat', sans-serif;
+		/* Azul — color principal */
+		--blue-950: #071638;
+		--blue-900: #0b1f4d;
+		--blue-800: #13306f;
+		--blue-700: #1d47a1;
+		--blue-600: #2a5cc2;
+		--blue-400: #6b9be6;
+		--blue-200: #cfe0fb;
+		--blue-100: #e3edfd;
+		--blue-50: #f3f7ff;
+
+		/* Rojo y verde — secundarios */
+		--red-700: #9a1424;
+		--red-600: #c62032;
+		--red-400: #e8505c;
+		--green-700: #1f6638;
+		--green-600: #2e8b4f;
+		--green-400: #5fbf7d;
+		--green-100: #def3e4;
+
+		/* Oro de cuento (de los elementos gráficos) */
+		--gold: #d9a93a;
+		--gold-dark: #a8781c;
+		--gold-gradient: linear-gradient(135deg, #b98220 0%, #f6d77a 45%, #fff1bf 55%, #c99128 100%);
+
+		--ink: #1a2a4f;
+		--ink-soft: #3d4f78;
+		--cream: #fffdf6;
+
+		--font-deco: 'Cinzel Decorative', 'Cormorant Garamond', serif;
+		--font-script: 'Great Vibes', cursive;
+		--font-story: 'Cormorant Garamond', Georgia, serif;
+		--font-body: 'Montserrat', system-ui, sans-serif;
+
+		--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+		--ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 
-	* {
+	*,
+	*::before,
+	*::after {
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
 	}
 
 	html {
-		background: #d8c2bd;
-		background: radial-gradient(circle at 50% 25%, #e6d3cf 0%, #cdb5af 100%);
+		background-color: var(--blue-950);
+		background-image:
+			radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.7), transparent 60%),
+			radial-gradient(1.5px 1.5px at 78% 12%, rgba(255, 255, 255, 0.8), transparent 60%),
+			radial-gradient(1px 1px at 45% 70%, rgba(255, 255, 255, 0.6), transparent 60%),
+			radial-gradient(1.5px 1.5px at 88% 82%, rgba(255, 255, 255, 0.7), transparent 60%),
+			radial-gradient(1px 1px at 22% 88%, rgba(255, 255, 255, 0.6), transparent 60%),
+			radial-gradient(ellipse at 50% 0%, #1d3f8f 0%, #0b1f4d 45%, #071638 100%);
 		background-attachment: fixed;
-		color: var(--c-text-body);
+		color: var(--ink);
 		font-family: var(--font-body);
 		-webkit-font-smoothing: antialiased;
 		scroll-behavior: smooth;
@@ -75,9 +110,12 @@ const ogImageUrl = Astro.site ? new URL(`${base}/img/1001307716.jpg`, Astro.site
 
 	body {
 		min-height: 100vh;
-		display: flex;
-		justify-content: center;
-		background: transparent;
+		overflow-x: hidden;
+	}
+
+	body.is-locked {
+		overflow: hidden;
+		height: 100vh;
 	}
 
 	a {
@@ -90,10 +128,28 @@ const ogImageUrl = Astro.site ? new URL(`${base}/img/1001307716.jpg`, Astro.site
 		cursor: pointer;
 		border: none;
 		background: none;
+		color: inherit;
 	}
 
 	img {
 		max-width: 100%;
 		display: block;
+	}
+
+	:focus-visible {
+		outline: 3px solid var(--gold);
+		outline-offset: 3px;
+		border-radius: 6px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
 	}
 </style>
