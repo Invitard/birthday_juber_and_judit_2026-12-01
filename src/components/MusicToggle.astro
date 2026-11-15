@@ -1,7 +1,7 @@
 ---
-// MusicToggle.astro — "Once Upon A Dream" suena al abrir el cuento
+// MusicToggle.astro — "Sonreír y Cantar" (Blanca Nieves) suena al abrir el cuento
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const song = `${base}/mp3/${encodeURIComponent('Lana Del Rey - Once Upon A Dream (Official Audio).mp3')}`;
+const song = `${base}/mp3/${encodeURIComponent('Sonreír y Cantar Blanca Nieves.mp3')}`;
 const sparkle = `${base}/mp3/EFECTO_DE_SONIDO_Resplandor.mp3`;
 ---
 
@@ -103,8 +103,8 @@ const sparkle = `${base}/mp3/EFECTO_DE_SONIDO_Resplandor.mp3`;
 	const btn = document.getElementById('music-btn');
 
 	if (audio && btn) {
-		// La canción empieza en el segundo 0:18 (también al repetirse)
-		const START_AT = 18;
+		// Segundo en el que empieza la canción (también al repetirse)
+		const START_AT = 0;
 		const seekStart = () => {
 			if (audio.currentTime < START_AT) audio.currentTime = START_AT;
 		};
