@@ -2,13 +2,13 @@
 
 Invitación digital para los cumpleaños de Juber y Judit — martes 01 de diciembre de 2026, 5:00 p.m., Casa Real Eventos (Cusco).
 
-**URL publicada:** https://invitard.github.io/invitard_birthday_juber_and_judit_2026-12-01/
+**URL publicada:** https://invitard.github.io/birthday_juber_and_judit_2026-12-01/
 
 ## Desarrollo
 
 ```sh
 npm install
-npx astro dev --background   # http://localhost:4321/invitard_birthday_juber_and_judit_2026-12-01/
+npx astro dev --background   # http://localhost:4321/birthday_juber_and_judit_2026-12-01/
 npx astro dev stop
 npm run build                # genera ./dist
 ```
@@ -19,7 +19,7 @@ Cada `push` a `main` ejecuta `.github/workflows/deploy.yml`, que compila con Ast
 
 Configuración única del repositorio en GitHub:
 
-1. Crear el repositorio `Invitard/invitard_birthday_juber_and_judit_2026-12-01` (público).
+1. Crear el repositorio `Invitard/birthday_juber_and_judit_2026-12-01` (público).
 2. **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 3. `git push -u origin main`.
 
