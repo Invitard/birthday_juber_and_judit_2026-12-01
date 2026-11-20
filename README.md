@@ -1,46 +1,37 @@
-# Astro Starter Kit: Basics
+# Invitación · Juber & Judit (65 & 60)
+
+Invitación digital para los cumpleaños de Juber y Judit — martes 01 de diciembre de 2026, 5:00 p.m., Casa Real Eventos (Cusco).
+
+**URL publicada:** https://invitard.github.io/invitard_birthday_juber_and_judit_2026-12-01/
+
+## Desarrollo
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npx astro dev --background   # http://localhost:4321/invitard_birthday_juber_and_judit_2026-12-01/
+npx astro dev stop
+npm run build                # genera ./dist
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Despliegue automático (GitHub Pages)
 
-## 🚀 Project Structure
+Cada `push` a `main` ejecuta `.github/workflows/deploy.yml`, que compila con Astro y publica en GitHub Pages.
 
-Inside of your Astro project, you'll see the following folders and files:
+Configuración única del repositorio en GitHub:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+1. Crear el repositorio `Invitard/invitard_birthday_juber_and_judit_2026-12-01` (público).
+2. **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. `git push -u origin main`.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+> El nombre del repositorio debe coincidir con `base` en `astro.config.mjs`. Si cambias uno, cambia el otro.
 
-## 🧞 Commands
+## Contenido editable
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Qué | Dónde |
+| --- | --- |
+| Foto de la pareja | `public/img/pareja.jpg` (vertical 4:5) |
+| Fotos del carrusel | `public/img/galeria/foto-1.jpg` … `foto-6.jpg` (vertical 4:5) |
+| Canción | `public/mp3/celebration.mp3` |
+| Imagen al compartir (WhatsApp) | `public/img/og-juber-judit.jpg` (1200×630) |
+| Teléfono de confirmación | `src/components/RsvpSection.astro` |
+| Textos y secciones | `src/pages/index.astro` |
