@@ -29,8 +29,8 @@ Configuración única del repositorio en GitHub:
 
 | Qué | Dónde |
 | --- | --- |
-| Foto de la pareja | `public/img/pareja.jpg` (vertical 4:5) |
-| Fotos del carrusel | `public/img/galeria/foto-1.jpg` … `foto-6.jpg` (vertical 4:5) |
+| Foto de la pareja | `principal` en `src/data/galeria.json` → genera `public/img/pareja.jpg` |
+| Fotos del carrusel (polaroids) | Originales en `fotos-originales/`, lista y textos en `src/data/galeria.json`; luego `node scripts/optimizar-fotos.mjs` |
 | Canción | `public/mp3/celebration.mp3` |
 | Imagen al compartir (WhatsApp) | `public/img/og-juber-judit.jpg` (1200×630) |
 | Teléfono de confirmación | `src/components/RsvpSection.astro` |

@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# fotos originales de celular (pesadas); se optimizan con scripts/optimizar-fotos.mjs
+fotos-originales/

@@ -1,0 +1,30 @@
+{
+	"principal": { "archivo": "padres 20.jpg", "fy": 0.55 },
+	"fotos": [
+		{ "archivo": "Madre.jpg", "lugar": "Madrid", "alt": "Judit en un mirador de cristal sobre Madrid" },
+		{ "archivo": "padres.jpg", "lugar": "Madrid", "alt": "Juber y Judit en el mirador de cristal sobre Madrid" },
+		{ "archivo": "madre 3.jpg", "lugar": "Madrid", "alt": "Judit en el parque del Retiro" },
+		{ "archivo": "padres 4.jpg", "lugar": "Madrid", "alt": "Juber y Judit junto al escudo del Real Madrid" },
+		{ "archivo": "padres 3.jpg", "lugar": "Madrid", "alt": "Juber y Judit en una terraza con vista a la ciudad" },
+		{ "archivo": "madres 4.jpg", "lugar": "Roma", "alt": "Judit con dos centuriones frente al Castillo Sant'Angelo" },
+		{ "archivo": "padre 2.jpg", "lugar": "Roma", "alt": "Juber con dos centuriones frente al Castillo Sant'Angelo" },
+		{ "archivo": "padres 15.jpg", "lugar": "Roma", "alt": "Juber y Judit con un centurión en Roma" },
+		{ "archivo": "padres 6.jpg", "lugar": "Roma", "alt": "Juber y Judit frente al Coliseo" },
+		{ "archivo": "padres 7.jpg", "lugar": "Roma", "alt": "Juber y Judit dentro del Coliseo" },
+		{ "archivo": "padres 5.jpg", "lugar": "Roma", "alt": "Juber y Judit con vista al Foro Romano", "fx": 0.68 },
+		{ "archivo": "padres 9.jpg", "lugar": "Roma", "alt": "Juber y Judit en un jardín de naranjos" },
+		{ "archivo": "padres 11.jpg", "lugar": "Roma", "alt": "Juber y Judit junto a un obelisco" },
+		{ "archivo": "padres 14.jpg", "lugar": "Roma", "alt": "Juber y Judit frente al Vittoriano" },
+		{ "archivo": "padres 12.jpg", "lugar": "Venecia", "alt": "Juber y Judit paseando en góndola" },
+		{ "archivo": "padre 3.jpg", "lugar": "París", "alt": "Juber con la Torre Eiffel iluminada de noche" },
+		{ "archivo": "padre 4.jpg", "lugar": "París", "alt": "Juber en los jardines del Trocadero" },
+		{ "archivo": "padres 16.jpg", "lugar": "París", "alt": "Juber y Judit al pie de la Torre Eiffel" },
+		{ "archivo": "padres 18.jpg", "lugar": "París", "alt": "Juber y Judit en la entrada de la Torre Eiffel" },
+		{ "archivo": "padres 21.jpg", "lugar": "París", "alt": "Juber y Judit dándose un beso frente a la Torre Eiffel" },
+		{ "archivo": "padres 22.jpg", "lugar": "París", "alt": "Juber y Judit felices con la Torre Eiffel al fondo" },
+		{ "archivo": "padres 24.jpg", "lugar": "París", "alt": "Juber y Judit frente a la pirámide del Louvre" },
+		{ "archivo": "padres 25.jpg", "lugar": "París", "alt": "Juber y Judit sentados junto a la pirámide del Louvre" },
+		{ "archivo": "padres 17.jpg", "lugar": "Juntos", "alt": "Juber y Judit a orillas del mar al anochecer" },
+		{ "archivo": "padres 19.jpg", "lugar": "Siempre juntos", "alt": "Selfie de Juber y Judit", "fx": 0.8 }
+	]
+}

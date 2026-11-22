@@ -10,6 +10,7 @@ import MusicToggle from '../components/MusicToggle.astro';
 import ScrollHint from '../components/ScrollHint.astro';
 import DiscoBall from '../components/DiscoBall.astro';
 import NumberBalloons from '../components/NumberBalloons.astro';
+import galeria from '../data/galeria.json';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const img = (p: string) => `${base}/img/${p}`;
@@ -26,11 +27,12 @@ const calendarUrl =
 	'&details=' + encodeURIComponent('Celebramos juntos los cumpleaños de Juber y Judit. Código de vestimenta: elegante.') +
 	'&location=' + encodeURIComponent('Casa Real Eventos, Av. Huayruropata 1718, Cusco');
 
-// Fotos del carrusel: reemplaza los archivos en public/img/galeria/ (formato vertical 4:5)
-const gallery = Array.from({ length: 6 }, (_, i) => ({
-	src: img(`galeria/foto-${i + 1}.jpg`),
-	alt: `Juber y Judit · recuerdo ${i + 1}`,
-}));
+// Fotos del carrusel (polaroids): se generan con `node scripts/optimizar-fotos.mjs`
+// a partir de fotos-originales/ según src/data/galeria.json
+const gallery = galeria.fotos.map((f, i) => {
+	const n = String(i + 1).padStart(2, '0');
+	return { src: img(`galeria/${n}.jpg`), thumb: img(`galeria/${n}-mini.jpg`), alt: f.alt, caption: f.lugar };
+});
 
 // Borde de papel rasgado (determinista): polígono irregular para clip-path
 const tornEdge = (seed: number, flip = false) => {
@@ -112,7 +114,7 @@ const dust = Array.from({ length: 12 }, (_, i) => ({
 					<span class="tape tape-him" aria-hidden="true"></span>
 					<span class="tape tape-her" aria-hidden="true"></span>
 					<div class="print-photo">
-						<img src={img('pareja.jpg')} alt="Juber y Judit" width="800" height="1000" loading="eager" />
+						<img src={img('pareja.jpg')} alt="Juber y Judit formando un corazón con las manos frente a la Torre Eiffel" width="800" height="1000" loading="eager" />
 					</div>
 					<figcaption class="print-caption">Juber &amp; Judit</figcaption>
 					<img class="sticker sticker-star" src={img('elements/estrella.webp')} alt="" width="300" height="288" />
