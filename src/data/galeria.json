@@ -11,6 +11,7 @@
 		{ "archivo": "padres 15.jpg", "lugar": "Roma", "alt": "Juber y Judit con un centurión en Roma" },
 		{ "archivo": "padres 6.jpg", "lugar": "Roma", "alt": "Juber y Judit frente al Coliseo" },
 		{ "archivo": "padres 7.jpg", "lugar": "Roma", "alt": "Juber y Judit dentro del Coliseo" },
+		{ "archivo": "madre coliseo.jpeg", "lugar": "Roma", "alt": "Judit feliz frente al Coliseo iluminado de noche" },
 		{ "archivo": "padres 5.jpg", "lugar": "Roma", "alt": "Juber y Judit con vista al Foro Romano", "fx": 0.68 },
 		{ "archivo": "padres 9.jpg", "lugar": "Roma", "alt": "Juber y Judit en un jardín de naranjos" },
 		{ "archivo": "padres 11.jpg", "lugar": "Roma", "alt": "Juber y Judit junto a un obelisco" },
@@ -24,6 +25,8 @@
 		{ "archivo": "padres 22.jpg", "lugar": "París", "alt": "Juber y Judit felices con la Torre Eiffel al fondo" },
 		{ "archivo": "padres 24.jpg", "lugar": "París", "alt": "Juber y Judit frente a la pirámide del Louvre" },
 		{ "archivo": "padres 25.jpg", "lugar": "París", "alt": "Juber y Judit sentados junto a la pirámide del Louvre" },
+		{ "archivo": "madre londres.jpeg", "lugar": "Londres", "alt": "Judit en el puente de Westminster con el London Eye al fondo", "fy": 0.55 },
+		{ "archivo": "madre delfines.jpeg", "lugar": "Lima", "alt": "Judit elegante en el lobby del hotel Delfines" },
 		{ "archivo": "padres 17.jpg", "lugar": "Juntos", "alt": "Juber y Judit a orillas del mar al anochecer" },
 		{ "archivo": "padres 19.jpg", "lugar": "Siempre juntos", "alt": "Selfie de Juber y Judit", "fx": 0.8 }
 	]
